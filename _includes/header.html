@@ -4,10 +4,10 @@
       {%- assign default_paths = site.pages | map: "path" -%}
       {%- assign page_paths = site.header_pages | default: default_paths -%}
       <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-    </div>
+    </div><!--
     <div class="tp-layout__container tpl-layout__container_size_m tpl-layout__container_align_center">
       {%- include badge.html -%}
-    </div>
+    </div> -->
     <div class="tp-layout__container tpl-layout__container_size_m tpl-layout__container_align_center">
       {%- if page_paths -%}
         <nav class="site-nav">
