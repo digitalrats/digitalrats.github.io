@@ -30,6 +30,8 @@ github_username:  digitalrats
 
 # Build settings
 theme: minima
+default_locale: "ru"
+
 plugins:
   - jekyll-feed
   - jekyll-postcss  
