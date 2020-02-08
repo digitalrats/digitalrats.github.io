@@ -1,0 +1,21 @@
+# ------------------------
+# _data/locales.yml
+# ------------------------
+
+# English US
+en-US:
+  greeting: Hello
+  user: user
+  navigation:
+    home: Home
+    about: About
+    contact: Contact
+
+# Russian
+ru-RU:
+  greeting: Добро пожаловать
+  user: Пользователь
+  navigation:
+    home: Домой
+    about: О нас
+    contact: Контакты
