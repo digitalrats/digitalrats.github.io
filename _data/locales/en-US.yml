@@ -1,0 +1,14 @@
+greeting: Hello
+user: user
+posts: Posts
+description: >- 
+  DigitalRats studio was founden in a memories of older team CRG. 
+  It was a late 90s Sinclair ZX-SPECTRUM fan group im my own city. 
+navigation:
+  home: Home
+  about: About
+  contact: Contact
+locale_date:
+  time:
+    formats:
+      default: "%B %d, %Y"

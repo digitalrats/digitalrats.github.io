@@ -24,14 +24,14 @@ description: >- # this means to ignore newlines until "baseurl:"
   DigitalRats studio was founden in a memories of older team CRG. 
   It was a late 90s Sinclair ZX-SPECTRUM fan group im my own city.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://digitalrats.ru" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: digitalrats
 github_username:  digitalrats
 
 # Build settings
 lsi: false
 safe: true
-source: https://github.com/digitalrats/digitalrats.github.io
+#source: https://github.com/digitalrats/digitalrats.github.io
 incremental: false
 highlighter: rouge
 gist:
@@ -41,9 +41,21 @@ kramdown:
   syntax_highlighter: rouge
 theme: minima
 
-plugins:
-  - jekyll-feed
-  - jekyll-postcss
+localization:
+  mode: manual
+  locale: ru-RU
+  locales_set: 
+    ru-RU:
+      lable: Russian
+      dir: ltr
+    en-US:
+      label: English
+      dir: ltr
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - postcss.config.js
 
 # Exclude from processing.
 # The following items will not be processed, by default.
