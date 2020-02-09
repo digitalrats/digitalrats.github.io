@@ -51,7 +51,10 @@ localization:
     en-US:
       label: English
       dir: ltr
-
+plugins:
+  - jekyll-locale
+  - jekyll-sitemap
+  - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
