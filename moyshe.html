@@ -36,11 +36,50 @@
         <canvas id="renderCanvas" touch-action="none"></canvas> //touch-action="none" for best results from PEP
 
         <script>
+            var video = ARController.getUserMedia({
+              maxARVideoSize: 320, // do AR processing on scaled down video of this size
+              facing: "environment",
+              onSuccess: function(video) {
+                console.log('got video', video);
+              }
+            });
+
             var canvas = document.getElementById("renderCanvas"); // Get the canvas element 
             var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
+            var sourcePlane = new BABYLON.Plane(0, -1, 1, 0);
+                sourcePlane.normalize();
     
+            /******* Add the create video scene function *****/
+            var createVideoScene = function () {
+    
+                // Create the scene space
+                var scene = new BABYLON.Scene(engine);
+    
+                // Add a camera to the scene and attach it to the canvas
+                var camera = new BABYLON.ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, new BABYLON.Vector3(0,0,5), scene);
+                camera.attachControl(canvas, true);
+    
+
+
+                var videoMat = new BABYLON.StandardMaterial("videoMat", scene);
+
+                
+                // Add and manipulate meshes in the scene
+                //var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:2}, scene);
+                var vscreen = BABYLON.MeshBuilder.CreatePlane("vscrn", {width: 2, height: 2, sideOrientation: BABYLON.Mesh.DOUBLESIDE, sourcePlane: sourcePlane }, scene);
+                //card.position = new BABYLON.Vector3(0, 0, -10);
+                vscreen.material = videoMat;
+
+                scene.onPointerDown = function () { 
+                    videoMat.video.play();
+                }
+
+                return scene;
+            }
+
             /******* Add the create scene function ******/
-            var createScene = function () {
+            var createARScene = function () {
     
                 // Create the scene space
                 var scene = new BABYLON.Scene(engine);
@@ -96,17 +135,63 @@
             };
             /******* End of the create scene function ******/    
     
-            var scene = createScene(); //Call the createScene function
-    
-            // Register a render loop to repeatedly render the scene
-            engine.runRenderLoop(function () { 
-                    scene.render();
+            var vidscene = createVideoScene();
+            var arscene = createARScene(); //Call the createScene function
+            var arController = null;
+
+            // run the render loop
+            engine.runRenderLoop(function () {
+                if (!arController) {
+                    return;
+                }
+
+                arController.detectMarker(v);
+                var markerNum = arController.getMarkerNum();
+
+                if (markerNum > 0) {
+
+                    if (markerRoot.isVisible) {
+                        arController.getTransMatSquareCont(0, 1, markerRoot.markerMatrix, markerRoot.markerMatrix);
+                    } else {
+                        arController.getTransMatSquare(0 /* Marker index */, 1 /* Marker width */, markerRoot.markerMatrix);
+                    }
+
+                    markerRoot.isVisible = true;
+                    markerRoot.getChildMeshes().forEach(function (mesh) {
+                        mesh.isVisible = true
+                    });
+
+                    arController.arglCameraViewRHf(arController.transMatToGLMat(markerRoot.markerMatrix), markerRoot._worldMatrix.m);
+                } else {
+                    markerRoot.isVisible = false;
+                    markerRoot.getChildMeshes().forEach(function (mesh) {
+                        mesh.isVisible = false;
+                    });
+                }
+
+                arController.debugDraw();
+                
+                vidscene.render();
+                arscene.render();
             });
-    
-            // Watch for browser/canvas resize events
-            window.addEventListener("resize", function () { 
-                    engine.resize();
+
+
+            var cameraParam = new ARCameraParam();
+            cameraParam.onload = async function () {
+
+                arController = new ARController(v.width, w.height, cameraParam);
+                arController.debugSetup();
+
+                camera.freezeProjectionMatrix(BABYLON.Matrix.FromArray(arController.getCameraMatrix()));
+            };
+            cameraParam.load('assets/camera_para.dat');
+
+            // the canvas/window resize event handler
+            window.addEventListener('resize', function () {
+                engine.resize();
             });
+                    
+           
         </script>
 
         <!--
@@ -198,7 +283,7 @@
 
                 arController.debugDraw();
 
-                scene.render();
+                
             });
 
 
@@ -217,6 +302,7 @@
             window.addEventListener('resize', function () {
                 engine.resize();
             });
+            scene.render();
         </script>
         -->
     </body>
