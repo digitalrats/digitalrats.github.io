@@ -20,7 +20,7 @@
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar not supported: "+msg);
           tag.appendChild(text);          
-        }
+        })
         .catch(error => { 
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar query error: " + error.message);
