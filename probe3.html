@@ -13,11 +13,13 @@
         navigator.xr.isSessionSupported().then((supported) => {          
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar supported");
+          tag.appendChild(text);
           console.log("immersive-ar supported")
           document.body.append(tag);
         }).catch(error => { 
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar not supported, reason: error.message");
+          tag.appendChild(text);
           console.log("immersive-ar not supported, reason: error.message")
           document.body.append(tag);
         });
@@ -25,6 +27,7 @@
         console.log("WebXR not supported")
         var tag = document.createElement("p");
         var text = document.createTextNode("WebXR not supported");
+        tag.appendChild(text);
         document.body.append(tag);
       }
     </script>
