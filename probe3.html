@@ -13,9 +13,11 @@
         navigator.xr.isSessionSupported().then((supported) => {
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar supported");
+          document.body.append(tag);
         }).catch(error => { 
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar not supported, reason: error.message");
+          document.body.append(tag);
         });
       } else {
         var tag = document.createElement("p");
