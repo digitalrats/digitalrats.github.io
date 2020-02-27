@@ -10,14 +10,12 @@
     <script>
       var polyfill = new WebXRPolyfill();      
       if (navigator.xr) {
-        var device = navigator.xr.requestDevice();
-        if (!device) {
-          var tag = document.createElement("p");
-          var text = document.createTextNode("WebXR can not get device");
-        }
-        navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
+        navigator.xr.isSessionSupported().then((supported) => {
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar supported");
+        }).catch(error => { 
+          var tag = document.createElement("p");
+          var text = document.createTextNode("immersive-ar not supported, reason: error.message");
         });
       } else {
         var tag = document.createElement("p");
