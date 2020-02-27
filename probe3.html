@@ -13,7 +13,7 @@
         navigator.xr.isSessionSupported().then((supported) => {          
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar supported");
-          var sessionPromise = xr.requestSession("immersive-ar");
+          var sessionPromise = navigator.xr.requestSession("immersive-ar");
           tag.appendChild(text);
           document.body.append(tag);
         })
