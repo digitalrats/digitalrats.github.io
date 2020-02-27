@@ -15,20 +15,23 @@
           var text = document.createTextNode("immersive-ar supported");
           tag.appendChild(text);
           document.body.append(tag);
-          console.log("immersive-ar supported")
-        }).catch(error => { 
+        })
+        .then((msg) => {
           var tag = document.createElement("p");
-          var text = document.createTextNode("immersive-ar not supported, reason: error.message");
+          var text = document.createTextNode("immersive-ar not supported: "+msg);
+          tag.appendChild(text);          
+        }
+        .catch(error => { 
+          var tag = document.createElement("p");
+          var text = document.createTextNode("immersive-ar query error: " + error.message);
           tag.appendChild(text);
           document.body.append(tag);
-          console.log("immersive-ar not supported, reason: error.message")
         });
       } else {
         var tag = document.createElement("p");
         var text = document.createTextNode("WebXR not supported");     
         tag.appendChild(text);
         document.body.append(tag);
-        console.log("WebXR not supported")
       }
     </script>
   </head>
