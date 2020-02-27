@@ -12,7 +12,7 @@
           var tag = document.createElement("p");
           var text = document.createTextNode("WebXR can not get device");
         }
-        if (navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
+        navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
           var tag = document.createElement("p");
           var text = document.createTextNode("immersive-ar supported");
         });
