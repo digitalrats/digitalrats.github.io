@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WebXR Poly file probes</title>
+    <script src='https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js'></script>
+    <script>
+      var polyfill = new WebXRPolyfill();      
+      if (navigator.xr) {
+        var device = navigator.xr.requestDevice();
+        if (!device) {
+          var tag = document.createElement("p");
+          var text = document.createTextNode("WebXR can not get device");
+        }
+        if (navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
+          var tag = document.createElement("p");
+          var text = document.createTextNode("immersive-ar supported");
+        });
+      } else {
+        var tag = document.createElement("p");
+        var text = document.createTextNode("WebXR not supported");
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
