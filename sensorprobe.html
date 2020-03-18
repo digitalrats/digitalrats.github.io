@@ -20,7 +20,7 @@
                     DeviceOrientationEvent.requestPermission().catch(function () {
                         $("ol").append("<li>DeviceOrientationEvent.requestPermission exception</li>"); 
                     }).then(function () {
-                        $("ol").append("<li>DeviceOrientationEvent permission result>+result+</li>"); 
+                        $("ol").append("<li>DeviceOrientationEvent permission result>"+result+"</li>"); 
                     });
                 }
                 if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
@@ -29,7 +29,7 @@
                     DeviceMotionEvent.requestPermission().catch(function () {
                         $("ol").append("<li>DeviceMotionEvent.requestPermission exception</li>"); 
                     }).then(function (result) {
-                        $("ol").append("<li>DeviceMotionEvent permission result>+result+</li>"); 
+                        $("ol").append("<li>DeviceMotionEvent permission result>"+result+"</li>"); 
                     });
                 }
             })
