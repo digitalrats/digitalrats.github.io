@@ -23,7 +23,6 @@
                         $("ol").append("<li>DeviceOrientationEvent permission granted</li>"); 
                     });
                 }
-                $("ol").append("<li>Sensor probe series started</li>"); 
                 if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
                 } else {
                     $("ol").append("<li>DeviceMotionEvent.requestPermission exists</li>"); 
