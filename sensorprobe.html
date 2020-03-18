@@ -17,8 +17,8 @@
                 if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
                 } else {
                     $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
-                    DeviceOrientationEvent.requestPermission().catch(function () {
-                        $("ol").append("<li>DeviceOrientationEvent.requestPermission exception</li>"); 
+                    DeviceOrientationEvent.requestPermission().catch(function (e) {
+                        $("ol").append("<li>DeviceMotionEvent.requestPermission exception"+e+"</li>"); 
                     }).then(function () {
                         $("ol").append("<li>DeviceOrientationEvent permission result>"+result+"</li>"); 
                     });
@@ -26,8 +26,8 @@
                 if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
                 } else {
                     $("ol").append("<li>DeviceMotionEvent.requestPermission exists</li>"); 
-                    DeviceMotionEvent.requestPermission().catch(function () {
-                        $("ol").append("<li>DeviceMotionEvent.requestPermission exception</li>"); 
+                    DeviceMotionEvent.requestPermission().catch(function (e) {
+                        $("ol").append("<li>DeviceMotionEvent.requestPermission exception"+e+"</li>"); 
                     }).then(function (result) {
                         $("ol").append("<li>DeviceMotionEvent permission result>"+result+"</li>"); 
                     });
