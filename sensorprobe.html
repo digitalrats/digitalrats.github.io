@@ -22,7 +22,9 @@
                         $("ol").append("<li>window.DeviceOrientationEvent.requestPermission exception"+e+"</li>"); 
                     }).then(function () {
                         $("ol").append("<li>window.DeviceOrientationEvent permission granted</li>"); 
-                    });
+                    }).then(function () {
+                        $("ol").append("<li>window.DeviceOrientationEvent permission rejected</li>"); 
+                    });;
                 }                
                 if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
                     $("ol").append("<li>DeviceOrientationEvent is undefined</li>"); 
@@ -32,7 +34,9 @@
                         $("ol").append("<li>DeviceOrientationEvent.requestPermission exception"+e+"</li>"); 
                     }).then(function () {
                         $("ol").append("<li>DeviceOrientationEvent permission granted</li>"); 
-                    });
+                    }).then(function () {
+                        $("ol").append("<li>DeviceOrientationEvent permission rejected</li>"); 
+                    });;
                 }
                 if ((typeof window.DeviceMotionEvent === 'undefined') || !window.DeviceMotionEvent.requestPermission) {
                     $("ol").append("<li>window.DeviceMotionEvent is undefined</li>"); 
@@ -42,6 +46,8 @@
                         $("ol").append("<li>window.DeviceMotionEvent.requestPermission exception"+e+"</li>"); 
                     }).then(function () {
                         $("ol").append("<li>window.DeviceMotionEvent permission granted</li>"); 
+                    }).then(function () {
+                        $("ol").append("<li>window.DeviceMotionEvent permission rejected</li>"); 
                     });
                 }                
                 if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
@@ -52,6 +58,8 @@
                         $("ol").append("<li>DeviceMotionEvent.requestPermission exception"+e+"</li>"); 
                     }).then(function () {
                         $("ol").append("<li>DeviceMotionEvent permission granted</li>"); 
+                    }).then(function () {
+                        $("ol").append("<li>DeviceMotionEvent permission rejected</li>"); 
                     });
                 }
             })
