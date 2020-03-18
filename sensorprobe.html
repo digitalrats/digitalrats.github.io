@@ -14,52 +14,23 @@
         <script>
             $( document ).ready(function() {
                 $("ol").append("<li>Sensor probe series started</li>"); 
-                if ((typeof window.DeviceOrientationEvent === 'undefined') || !window.DeviceOrientationEvent.requestPermission) {
-                    $("ol").append("<li>window.DeviceOrientationEvent is undefined</li>"); 
+                if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
                 } else {
                     $("ol").append("<li>window.DeviceOrientationEvent.requestPermission exists</li>"); 
-                    window.DeviceOrientationEvent.requestPermission().catch(function (err) {
-                        $("ol").append("<li>window.DeviceOrientationEvent.requestPermission exception"+e+"</li>"); 
-                    }).then(function () {
-                        $("ol").append("<li>window.DeviceOrientationEvent permission granted</li>"); 
-                    }).then(function () {
-                        $("ol").append("<li>window.DeviceOrientationEvent permission rejected</li>"); 
-                    });;
-                }                
-                if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
-                    $("ol").append("<li>DeviceOrientationEvent is undefined</li>"); 
-                } else {
-                    $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
-                    DeviceOrientationEvent.requestPermission().catch(function (err) {
-                        $("ol").append("<li>DeviceOrientationEvent.requestPermission exception"+e+"</li>"); 
+                    DeviceOrientationEvent.requestPermission().catch(function () {
+                        $("ol").append("<li>DeviceOrientationEvent.requestPermission exception</li>"); 
                     }).then(function () {
                         $("ol").append("<li>DeviceOrientationEvent permission granted</li>"); 
-                    }).then(function () {
-                        $("ol").append("<li>DeviceOrientationEvent permission rejected</li>"); 
-                    });;
-                }
-                if ((typeof window.DeviceMotionEvent === 'undefined') || !window.DeviceMotionEvent.requestPermission) {
-                    $("ol").append("<li>window.DeviceMotionEvent is undefined</li>"); 
-                } else {
-                    $("ol").append("<li>window.DeviceMotionEvent.requestPermission exists</li>"); 
-                    window.DeviceMotionEvent.requestPermission().catch(function (err) {
-                        $("ol").append("<li>window.DeviceMotionEvent.requestPermission exception"+e+"</li>"); 
-                    }).then(function () {
-                        $("ol").append("<li>window.DeviceMotionEvent permission granted</li>"); 
-                    }).then(function () {
-                        $("ol").append("<li>window.DeviceMotionEvent permission rejected</li>"); 
                     });
-                }                
+                }
+                $("ol").append("<li>Sensor probe series started</li>"); 
                 if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
-                    $("ol").append("<li>DeviceMotionEvent is undefined</li>"); 
                 } else {
                     $("ol").append("<li>DeviceMotionEvent.requestPermission exists</li>"); 
-                    DeviceMotionEvent.requestPermission().catch(function (err) {
-                        $("ol").append("<li>DeviceMotionEvent.requestPermission exception"+e+"</li>"); 
+                    DeviceMotionEvent.requestPermission().catch(function () {
+                        $("ol").append("<li>DeviceMotionEvent.requestPermission exception</li>"); 
                     }).then(function () {
                         $("ol").append("<li>DeviceMotionEvent permission granted</li>"); 
-                    }).then(function () {
-                        $("ol").append("<li>DeviceMotionEvent permission rejected</li>"); 
                     });
                 }
             })
