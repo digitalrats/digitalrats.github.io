@@ -13,27 +13,29 @@
     <body>
         <script>
             $( document ).ready(function() {
-                $("ol").append("<li>Sensor probe series started</li>"); 
-                if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
-                } else {
-                    $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
-                    DeviceOrientationEvent.requestPermission().then(function () {
-                        $("ol").append("<li>DeviceOrientationEvent permission result>"+result+"</li>"); 
-                    }, function (e) {
-                        $("ol").append("<li>DeviceMotionEvent.requestPermission  rejected: "+e+"</li>"); 
-                    });
-                }
-                if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
-                } else {
-                    DeviceOrientationEvent.requestPermission().then(function () {
-                        $("ol").append("<li>DeviceOrientationEvent permission result>"+result+"</li>"); 
-                    }, function (e) {
-                        $("ol").append("<li>DeviceMotionEvent.requestPermission rejected: "+e+"</li>"); 
-                    });
-                }
+		    $("button").click(function(){
+			$("ol").append("<li>Sensor probe series started</li>"); 
+			if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
+			} else {
+			    $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
+			    DeviceOrientationEvent.requestPermission().then(function () {
+				$("ol").append("<li>DeviceOrientationEvent permission result>"+result+"</li>"); 
+			    }, function (e) {
+				$("ol").append("<li>DeviceMotionEvent.requestPermission  rejected: "+e+"</li>"); 
+			    });
+			}
+			if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
+			} else {
+			    DeviceOrientationEvent.requestPermission().then(function () {
+				$("ol").append("<li>DeviceOrientationEvent permission result>"+result+"</li>"); 
+			    }, function (e) {
+				$("ol").append("<li>DeviceMotionEvent.requestPermission rejected: "+e+"</li>"); 
+			    });
+			}
+		    }
             })
         </script>
-
+    	<button>Add new list item</button>
         <ol>
         </ol>
     </body>
