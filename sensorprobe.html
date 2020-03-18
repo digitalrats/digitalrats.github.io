@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sensor probe</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+        <script>
+            $( document ).ready(function() {
+                $("ol").append("<li>Sensor probe series started</li>"); 
+                if ((typeof window.DeviceOrientationEvent === 'undefined') || !window.DeviceOrientationEvent.requestPermission) {
+                    $("ol").append("<li>window.DeviceOrientationEvent is undefined</li>"); 
+                } else {
+                    $("ol").append("<li>window.DeviceOrientationEvent.requestPermission exists</li>"); 
+                    window.DeviceOrientationEvent.requestPermission().catch(function (err) {
+                        $("ol").append("<li>window.DeviceOrientationEvent.requestPermission exception"+e+"</li>"); 
+                    }).then(function () {
+                        $("ol").append("<li>window.DeviceOrientationEvent permission granted</li>"); 
+                    });
+                }                
+                if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
+                    $("ol").append("<li>DeviceOrientationEvent is undefined</li>"); 
+                } else {
+                    $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
+                    DeviceOrientationEvent.requestPermission().catch(function (err) {
+                        $("ol").append("<li>DeviceOrientationEvent.requestPermission exception"+e+"</li>"); 
+                    }).then(function () {
+                        $("ol").append("<li>DeviceOrientationEvent permission granted</li>"); 
+                    });
+                }
+                if ((typeof window.DeviceMotionEvent === 'undefined') || !window.DeviceMotionEvent.requestPermission) {
+                    $("ol").append("<li>window.DeviceMotionEvent is undefined</li>"); 
+                } else {
+                    $("ol").append("<li>window.DeviceMotionEvent.requestPermission exists</li>"); 
+                    window.DeviceMotionEvent.requestPermission().catch(function (err) {
+                        $("ol").append("<li>window.DeviceMotionEvent.requestPermission exception"+e+"</li>"); 
+                    }).then(function () {
+                        $("ol").append("<li>window.DeviceMotionEvent permission granted</li>"); 
+                    });
+                }                
+                if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
+                    $("ol").append("<li>DeviceMotionEvent is undefined</li>"); 
+                } else {
+                    $("ol").append("<li>DeviceMotionEvent.requestPermission exists</li>"); 
+                    DeviceMotionEvent.requestPermission().catch(function (err) {
+                        $("ol").append("<li>DeviceMotionEvent.requestPermission exception"+e+"</li>"); 
+                    }).then(function () {
+                        $("ol").append("<li>DeviceMotionEvent permission granted</li>"); 
+                    });
+                }
+            })
+        </script>
+
+        <ol>
+        </ol>
+    </body>
+</html>
