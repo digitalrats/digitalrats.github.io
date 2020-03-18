@@ -18,7 +18,7 @@
 			if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
 			} else {
 			    $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
-			    DeviceOrientationEvent.requestPermission().then(function () {
+			    DeviceOrientationEvent.requestPermission().then(function (result) {
 				$("ol").append("<li>DeviceOrientationEvent permission result>"+result+"</li>"); 
 			    }, function (e) {
 				$("ol").append("<li>DeviceMotionEvent.requestPermission  rejected: "+e+"</li>"); 
@@ -26,7 +26,7 @@
 			}
 			if ((typeof DeviceMotionEvent === 'undefined') || !DeviceMotionEvent.requestPermission) {
 			} else {
-			    DeviceOrientationEvent.requestPermission().then(function () {
+			    DeviceOrientationEvent.requestPermission().then(function (result) {
 				$("ol").append("<li>DeviceOrientationEvent permission result>"+result+"</li>"); 
 			    }, function (e) {
 				$("ol").append("<li>DeviceMotionEvent.requestPermission rejected: "+e+"</li>"); 
