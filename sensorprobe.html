@@ -16,7 +16,7 @@
                 $("ol").append("<li>Sensor probe series started</li>"); 
                 if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
                 } else {
-                    $("ol").append("<li>window.DeviceOrientationEvent.requestPermission exists</li>"); 
+                    $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
                     DeviceOrientationEvent.requestPermission().catch(function () {
                         $("ol").append("<li>DeviceOrientationEvent.requestPermission exception</li>"); 
                     }).then(function () {
