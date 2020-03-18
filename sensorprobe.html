@@ -13,19 +13,19 @@
     <body>
         <script>
             $( document ).ready(function() {
-		    $("button").click(function() {
-			$("ol").append("<li>Sensor probe series started</li>"); 
-			if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
-			} else {
-			    $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
-			    DeviceOrientationEvent.requestPermission().then(function (result) {
-				$("ol").append("<li>DeviceOrientationEvent permission result: "+result+"</li>"); 
-			    }, function (e) {
-				$("ol").append("<li>DeviceMotionEvent.requestPermission rejected: "+e+"</li>"); 
-			    });
-			}
-		    });
-            })
+                $("button").click(function() {
+                    $("ol").append("<li>Sensor probe series started</li>"); 
+                    if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
+                    } else {
+                        $("ol").append("<li>DeviceOrientationEvent.requestPermission exists</li>"); 
+                        DeviceOrientationEvent.requestPermission().then(function (result) {
+                        $("ol").append("<li>DeviceOrientationEvent permission result: "+result+"</li>"); 
+                        }, function (e) {
+                        $("ol").append("<li>DeviceMotionEvent.requestPermission rejected: "+e+"</li>"); 
+                        });
+                    }
+                });
+            });
         </script>
     	<button>Push me</button>
         <ol>
