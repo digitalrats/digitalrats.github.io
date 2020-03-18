@@ -13,7 +13,7 @@
     <body>
         <script>
             $( document ).ready(function() {
-		    $("button").click(function(){
+		    $("button").click(function() {
 			$("ol").append("<li>Sensor probe series started</li>"); 
 			if ((typeof DeviceOrientationEvent === 'undefined') || !DeviceOrientationEvent.requestPermission) {
 			} else {
@@ -32,7 +32,7 @@
 				$("ol").append("<li>DeviceMotionEvent.requestPermission rejected: "+e+"</li>"); 
 			    });
 			}
-		    }
+		    });
             })
         </script>
     	<button>Push me</button>
