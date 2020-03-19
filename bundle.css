@@ -1,5 +1,5 @@
 
-#videoContainer.svelte-fw1wz4{box-sizing:border-box;height:100%;width:100%;overflow:hidden}#video-canvas.svelte-fw1wz4{z-index:-100;position:absolute;right:0;bottom:0;min-width:100%;min-height:100%;background-size:cover;overflow:hidden}
+#videoContainer.svelte-1hoqv0f{box-sizing:border-box;height:100%;width:100%;overflow:hidden}#videocanvas.svelte-1hoqv0f{z-index:-100;position:absolute;right:0;bottom:0;min-width:100%;min-height:100%;background-size:cover;overflow:hidden}#debugOverlay.svelte-1hoqv0f{z-index:-20;position:absolute;left:5px;bottom:100px;color:darkgreen}
 .marker.svelte-1rdfbh1{position:absolute;right:0;bottom:0;min-width:100%;min-height:100%;width:auto;height:auto;z-index:-50;background-size:cover;overflow:hidden}
 .marker.svelte-1rdfbh1{position:absolute;right:0;bottom:0;min-width:100%;min-height:100%;width:auto;height:auto;z-index:-50;background-size:cover;overflow:hidden}
 body{margin:0;padding:0}
